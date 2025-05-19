@@ -19,6 +19,6 @@ agv_times = csv["time"]
 # Plotting the graph
 plt.plot(n_pages, agv_times)
 plt.xlabel("Número de Páginas")
-plt.ylabel("Tempo médio de acesso (ns)")
+plt.ylabel("Tempo médio de acesso (s)")
 
 plt.show()

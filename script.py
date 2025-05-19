@@ -29,5 +29,3 @@ with open(output_file, "w") as file:
         avg_time = result.stdout.strip()
         file.write(f"{n_pages},{n_iterations},{avg_time}\n")
         print("Finished with n_pages:", n_pages)
-
-

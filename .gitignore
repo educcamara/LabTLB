@@ -3,3 +3,6 @@
 
 # C Project
 cmake-build-debug/
+
+# Executable 
+main

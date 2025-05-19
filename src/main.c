@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
@@ -11,12 +12,14 @@ int get_page_size();
 double get_time_diff(struct timeval start, struct timeval end);
 
 int main(int argc, char **argv) {
+
 #ifdef __linux__
     cpu_set_t mask;
     CPU_ZERO(&mask);
     CPU_SET(0, &mask);
     sched_setaffinity(0, sizeof(cpu_set_t), &mask);
 #endif
+
 
     if (argc != 3) {
         fprintf(stderr, "usage: %s <n_pages> <n_iterations>\n", argv[0]);
@@ -38,13 +41,11 @@ int main(int argc, char **argv) {
     }
 
     // Main loop
-    int a;
     struct timeval start, end;
     gettimeofday(&start, NULL);
     for (int i = 0; i < n_iterations; i++) {
         for (int j = 0; j < n_pages; j++) {
             array[j * jump] += 1;
-            a = array[j * jump];
         }
     }
     gettimeofday(&end, NULL);
